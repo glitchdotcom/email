@@ -1,0 +1,33 @@
+extends layout.pug
+
+block content
+  if team.hasAvatar
+    - teamAvatarUrl = "https://cdn.glitch.com/team-avatar/" + team.id + "/large"
+  else
+    - teamAvatarUrl = "https://cdn.glitch.com/55f8497b-3334-43ca-851e-6c9780082244/default-team-avatar.svg?1503510366819"
+
+  - userBackgroundColor = "background-color:" + userWhoSentInvite.color
+
+  // .hidden used for formatting the email preview text
+  p 
+    if userWhoSentInvite.login
+      a(href=baseDomain + '@' + userWhoSentInvite.login)
+        img.avatar(src=userWhoSentInvite.avatarUrl alt=userWhoSentInvite.name style=userBackgroundColor)
+    else
+      p= ''
+      a(href=baseDomain + '@' + userWhoSentInvite.id)
+        .avatar.anon-avatar(alt=userWhoSentInvite.id style=userBackgroundColor)
+    span= userWhoSentInvite.name
+    span= ' '
+    span= "invited you to"
+    span.hidden= ' '
+    a(href=baseDomain + '@' + team.url)
+      img.avatar.team-avatar(src=teamAvatarUrl alt=team.name)
+    span= team.name
+  
+  span.hidden= ' ~~~ '
+
+  a(href=baseDomain + 'join/@' + team.url + '/' + joinToken)
+    .button.button-cta Join #{team.name}
+
+  span.hidden= ' ~~~ '

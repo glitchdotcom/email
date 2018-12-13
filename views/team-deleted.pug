@@ -1,0 +1,19 @@
+extends layout.pug
+
+block content
+  p 
+    a(href=userLink)
+      img.avatar(src=userAvatarUrl alt=userName)
+    span= "deleted"
+    img.avatar.team-avatar(src=teamAvatarUrl alt=teamName)
+    span= teamName
+  
+  p
+    span if
+    span= " "
+    span=teamName
+    span= " "
+    span was deleted by accident you can undelete it
+  
+  a(href=undeleteLink)
+    .button.button-cta Undelete #{teamName}
