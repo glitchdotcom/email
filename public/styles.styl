@@ -1,0 +1,127 @@
+// view files don't reference this directly.
+// copy compiled output of https://email.glitch.me/styles.css into dist.css
+
+monospace = Menlo, Consolas, Monaco, "Lucida Console", Monospace
+sansserif = "Benton Sans", Helvetica, Sans-serif
+
+primary = #222
+secondary = #C3C3C3
+tertiary = #9B9B9B
+primary-background = white
+secondary-background = #F5F5F5
+secondary-background-active = #E8E8E8
+text-on-secondary-background = #727272
+line-on-secondary-background = #B8B8B8
+input-border = #CCC
+input-border-focused = #A2D7FF
+overlay-background = rgba(255, 255, 255, 0.8)
+cta = #83ffcd
+link = #3652D3
+section-line = #E5E5E5
+private = #fcf3b0
+beta = private
+pop-shadow = 0px 2px 5px 0px rgba(0,0,0,0.27), 0px 1px 1px 0px rgba(0,0,0,0.15)
+error = #FF5F5F
+warning = #FFAABF
+warning-background = #ffdadf
+notification = #9588EA
+success = #05D458
+help-tag = #54F8D6
+
+small-asset-width = 325px
+medium-asset-width = 570px
+ 
+body
+  font-family: sansserif
+  background-color: primary-background
+  margin-top: 2rem
+  padding-left: 15px
+  padding-right: 15px
+  max-width: 612px
+  margin-left: auto
+  margin-right: auto
+
+header
+  margin-bottom: 1rem
+  .email
+    width: 90px
+    
+h1,
+h2
+  margin-top: 2rem
+  margin-bottom: 1rem
+
+h1
+  font-size: 26px
+
+h2
+  margin-top: 3rem
+  font-size: 22px
+
+h3
+  font-size: 18px
+  font-weight: 600
+
+// aside
+//   p
+//     color: tertiary
+
+a
+  color: link
+  text-decoration: none
+  &:hover
+    text-decoration: underline
+
+strong
+  font-weight: 600
+    
+p
+  line-height: 21px
+  color: primary;
+
+code
+  background-color: secondary-background
+  max-width: 100%;
+  font-family: monospace
+  font-size: 14px;
+  white-space: normal;
+
+footer
+  padding-top: 1rem
+  border-top: 1px solid section-line
+  margin-top: 2rem
+  margin-bottom: 5rem
+  p
+    color: tertiary
+  
+ul
+  ul,
+  ol
+    margin-top: 1rem
+  
+li
+  margin-bottom: 1rem;
+  line-height: 21px;
+
+.logo
+  width: 32px 
+
+.avatar
+  width: 32px
+  height: 32px
+  border-radius: 5px
+  display: inline-block
+  vertical-align: middle
+  margin-right: 5px
+.team-avatar
+  margin-left: 5px
+.anon-avatar
+  background-image: url('https://cdn.glitch.com/9c1ace4e-76d4-460b-b629-0b1e778d1be9%2Fanon.svg?1538494257722')
+  background-repeat: no-repeat
+  background-position: center
+  background-size: 65%
+  
+.hidden
+  display: none !important
+  
+@require 'buttons'
