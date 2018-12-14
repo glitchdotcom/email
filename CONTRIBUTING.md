@@ -1,20 +1,31 @@
 # Contributing
 
-Don't edit ~email directly because it's a production app. Instead you should:
+Don't edit this project directly because [~email](https://glitch.com/~email) is a production app. To contribute:
 
 ## Developing
 
-1. Remix this
+1. Remix [~email](https://glitch.com/~email)
 
-2. In your [local dev](https://github.com/FogCreek/Glitch) change `EMAIL_TEMPLATE_API` (in `puppet/hieradata/development/common.yaml`) to your remix url. Then trigger a full deploy in `sh/watch.sh` with `f`. (Don't commit this change though)
+2. In your [local dev](https://github.com/FogCreek/Glitch) change `EMAIL_TEMPLATE_API` (in `puppet/hieradata/development/common.yaml`) to your remix url. Then trigger a full deploy in `sh/watch.sh` with `f`.
 
-3. use paw or similar to trigger emails to your dev api. For example, POSTing to `https://api.glitch.development/email/sendLoginEmail?emailAddress=my-email@glitch.com` or `https://api.glitch.development/teams/[team-id]/sendJoinTeamEmail`.
+3. Use paw or similar to trigger emails to your dev api. For example, POSTing to `https://api.glitch.development/email/sendLoginEmail?emailAddress=my-email@glitch.com` or `https://api.glitch.development/teams/[team-id]/sendJoinTeamEmail`.
 
     - You'll need to include an auth header with your request `Authorization: user-persistent-token`
+    - You might also need to override `RATE_LIMIT_PERIOD` in `email.ts` while developing.
 
-4. You can see the emails sent from your dev env at [https://glitch.development/mailbox/](https://glitch.development/mailbox/)
+4. You can see the emails sent from your dev env at [https://glitch.development/mailbox/](https://glitch.development/mailbox/).
 
-    - To test your email templates with *real email clients* (gmail, ios mail, etc.) you'll need to use `https://api.staging.glitch.com` instead. However, staging can only send email to whitelisted addresses, so ask DavidH to add your email(s) to the staging environment SES whitelist.
+### Testing layout and style changes
+
+To test your email templates with *real email clients* (gmail, ios mail, etc.) you'll need to use the staging environment.
+
+1. In your [local dev](https://github.com/FogCreek/Glitch) change `EMAIL_TEMPLATE_API` (in `puppet/hieradata/staging/common.yaml`) to your remix url. Commit this and merge it into the [`staging`](https://github.com/FogCreek/Glitch/tree/staging) branch.
+
+2. Use paw or similar to trigger emails to the staging api. For example, POSTing to `https://api.staging.glitch.com/email/sendLoginEmail?emailAddress=my-email@glitch.com` or `https://api.staging.glitch.com/teams/[team-id]/sendJoinTeamEmail`.
+
+    - Staging can only send email to whitelisted addresses, so ask DavidH to add your email(s) to the staging environment SES whitelist.
+
+3. The emails will be sent to your email address.
 
 ## Deploying
 
