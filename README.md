@@ -13,7 +13,7 @@ We're using a microservice because these user actions can come from the editor o
 How it Works
 ------------
 - Recieves input from the Glitch API (tokens, strings, emailType)
-- Email app verifies that the request is from the API
-- Email app compiles the email HTML from templates
+- **Email app verifies that the request is from the API**
+- **Email app compiles the email HTML from templates**
 - Sends the compiled html email and intended recipients to the API
 - API sends the email out via Amazon SES

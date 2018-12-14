@@ -18,9 +18,7 @@ app.use(stylish({
     if (error) {
       return console.log(error);
     } else {
-      
       return console.log(`${filename} compiled to css`);
-      
     }
   }
 }));
@@ -37,7 +35,7 @@ const communitySiteUrl = (path) => {
 const subject = (params) => {
   let template = params.template
   if (template === "email-login") {
-    return "Your Glitch login link"
+    return "Sign in to Glitch"
   } else if (template === "join-team") {
     return `Join ${params.team.name} on Glitch`
   } else if (template === "team-deleted") {
@@ -53,7 +51,9 @@ app.get("/", function (request, response) {
 
 app.get("/email-login", function (request, response) {
   let testParams = {
-    loginLink: "/",
+    baseDomain: "https://glitch.com/",
+    path: 'login/email',
+    joinToken: 'cool-cosmos-miracle',
     title: subject({
       template: "email-login",
     }),
@@ -156,7 +156,7 @@ async function render(path, params) {
 
 app.post("/email", async (request, response) => {
   const css = fs.readFileSync('./public/dist.css').toString();
-  console.log(request.body && request.body.template, request.body.invitee)
+  console.log('🌹', request.body && request.body.template, request.body)
   // set which view to render based on body.template
   let content = await render(`views/${request.body.template}.pug`, request.body);
   // juice automatically inlines styles onto html for use in emails
