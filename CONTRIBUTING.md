@@ -33,9 +33,7 @@ Since this is a small microservice app with infrequent updates, the process is l
 
 1. Let everyone in #infrastructure know that you're working on email app updates, and make you know who else is working on it
 
-2. Use the `swapDomains` api endpoint to make your remixed email app the new prod one. This part is the same as on ~Community
-
-> This endpoint is undocumented. If you've never used it before, feel free to ask Jude, Pirijan or Emanuele for help
+2. Use the [swapDomains api endpoint](https://www.notion.so/glitch/projects-SwapDomains-7865b923564046a78460dc679c364543) to make your remixed email app the new prod one. This part is the same as on ~Community
 
 3. Use `Advanced Options → Export to Github` to `FogCreek/email`. Then merge in the PR that's created
 
